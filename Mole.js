@@ -1,14 +1,15 @@
-import React, { Component } from "react";
 import {
-  View,
-  StyleSheet,
   Button,
   Image,
+  StyleSheet,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
+import React, { Component } from "react";
+
+import Constants from "./Constants";
 import Images from "./assets/Images";
 import SpriteSheet from "rn-sprite-sheet";
-import Constants from "./Constants";
 
 export default class Mole extends Component {
   constructor(props) {
