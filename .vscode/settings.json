@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
   "git.ignoreLimitWarning": true
+=======
+    "git.ignoreLimitWarning": true
+>>>>>>> c5972f14b361d62bfd0888d78808f10e8f7934d8
 }

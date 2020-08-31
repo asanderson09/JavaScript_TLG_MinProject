@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
-  Vibration,
   View,
 } from "react-native";
 import React, { Component } from "react";
