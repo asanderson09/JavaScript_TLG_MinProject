@@ -29,10 +29,9 @@ const DEFAULT_STATE = {
 };
 
 class Game extends Component {
-  // TODO: hide header once 'back to dashboard' button is created
-  // static navigationOptions = {
-  //   headerShown: false,
-  // };
+  static navigationOptions = {
+    headerShown: false,
+  };
 
   constructor(props) {
     super(props);
@@ -59,6 +58,13 @@ class Game extends Component {
     this.molesPopping = 0;
 
     this.setState(DEFAULT_STATE, this.setupTicks);
+  };
+  //  return the player back to the dashboard
+  handleDashboard = () => {
+    if (this.moles.length > 1) {
+      this.componentDidMount;
+    }
+    this.props.navigation.navigate("Dashboard");
   };
 
   pause = () => {
@@ -256,6 +262,7 @@ class Game extends Component {
                         onDamage={this.onDamage}
                         onHeal={this.onHeal}
                         onScore={this.onScore}
+                        onNavigating={this.handleDashboard}
                       />
                     </View>
                   );
@@ -280,7 +287,11 @@ class Game extends Component {
           />
         )}
         {this.state.paused && (
-          <Pause onReset={this.reset} onResume={this.resume} />
+          <Pause
+            onReset={this.reset}
+            onResume={this.resume}
+            onHandleDashboard={this.handleDashboard}
+          />
         )}
       </View>
     );

@@ -9,34 +9,61 @@ const Dashboard = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Button
-        title="Play game"
-        onPress={gameHandler}
-        style={styles.playButton}
-      />
+      <View style={styles.header}>
+        <Text>Whack-A-Mole</Text>
+      </View>
+      <View>
+        <Button
+          title="Play game"
+          onPress={gameHandler}
+          buttonStyle={styles.playButton}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 24,
-    backgroundColor: "#008040",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flex: 1,
+    backgroundColor: "#8ceb07",
+  },
+  button: {
+    backgroundColor: "#FFF",
+    borderRadius: 50,
+    width: 200,
+    opacity: 0.8,
+    margin: 2,
   },
   playButton: {
-    borderRadius: 8,
-    paddingVertical: 14,
-    paddingHorizontal: 10,
-    backgroundColor: "#b3daff",
-    color: "#1a001a",
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    fontSize: 16,
-    textAlign: "center",
+    backgroundColor: "#FFF",
+    borderRadius: 50,
+    width: 200,
+    opacity: 0.8,
+    margin: 2,
+  },
+  buttonTitle: {
+    color: "#BB1F13",
+    fontSize: 25,
+  },
+  title: {
+    color: "#FFF",
+    marginVertical: 20,
+  },
+  titleContainer: {
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  highScore: {
+    color: "red",
+    fontSize: 18,
   },
 });
+
+Dashboard.navigationOptions = {
+  headerShown: false,
+};
 
 export default Dashboard;
