@@ -1,3 +1,4 @@
+
 build/Release
 
 # Dependency directories
@@ -12,3 +13,12 @@ assets/.DS_Store
 .expo/settings.json
 *.json
 *.json
+
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+
