@@ -17,7 +17,7 @@ export default class Pause extends Component {
                 <Image
                   style={styles.panelButtonIcon}
                   resizeMode="contain"
-                  source={Images.restartIcon}
+                  source={Images.homeIcon}
                 />
               </View>
             </TouchableWithoutFeedback>
