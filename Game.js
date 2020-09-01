@@ -63,8 +63,10 @@ class Game extends Component {
   //  return the player back to the dashboard
   handleDashboard = () => {
     if (this.moles.length > 1) {
-      this.componentDidMount;
+      // this.componentDidMount;
+      this.pause;
     }
+    this.pause;
     this.props.navigation.navigate("Dashboard");
   };
 
@@ -263,7 +265,6 @@ class Game extends Component {
                         onDamage={this.onDamage}
                         onHeal={this.onHeal}
                         onScore={this.onScore}
-                        onNavigating={this.handleDashboard}
                       />
                     </View>
                   );
@@ -274,6 +275,7 @@ class Game extends Component {
         </View>
         {this.state.cleared && (
           <Clear
+            onHandleDashboard={this.handleDashboard}
             onReset={this.reset}
             onNextLevel={this.nextLevel}
             level={this.state.level}
@@ -282,6 +284,7 @@ class Game extends Component {
         )}
         {this.state.gameover && (
           <GameOver
+            onHandleDashboard={this.handleDashboard}
             onReset={this.reset}
             level={this.state.level}
             score={this.state.score}
