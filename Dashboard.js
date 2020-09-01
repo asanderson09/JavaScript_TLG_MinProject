@@ -7,6 +7,10 @@ const Dashboard = ({ navigation }) => {
     navigation.navigate("Game");
   };
 
+  const chatHandler = () => {
+    navigation.navigate("Chat");
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -19,6 +23,12 @@ const Dashboard = ({ navigation }) => {
           titleStyle={styles.buttonTitle}
           onPress={gameHandler}
           buttonStyle={styles.playButton}
+        />
+        <Button
+          title="Chat-It-Up"
+          titleStyle={styles.buttonTitle}
+          onPress={chatHandler}
+          buttonStyle={styles.chatButton}
         />
       </View>
     </View>
@@ -42,6 +52,13 @@ const styles = StyleSheet.create({
   buttonTitle: {
     color: "white",
     fontSize: 25,
+  },
+  chatButton: {
+    backgroundColor: "blue",
+    borderRadius: 40,
+    width: 200,
+    opacity: 0.8,
+    margin: 2,
   },
   title: {
     color: "white",
