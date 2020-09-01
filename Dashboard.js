@@ -1,5 +1,5 @@
-import { Button, StyleSheet, Text, View } from "react-native";
-
+import { StyleSheet, Text, View } from "react-native";
+import { Button, Icon, Overlay } from "react-native-elements";
 import React from "react";
 
 const Dashboard = ({ navigation }) => {
@@ -9,12 +9,14 @@ const Dashboard = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Whack-A-Mole</Text>
-      </View>
       <View>
+        <Text h1 h1Style={styles.title}>
+          Whack-A-Mole
+        </Text>
+        <Text> </Text>
         <Button
           title="Play game"
+          titleStyle={styles.buttonTitle}
           onPress={gameHandler}
           buttonStyle={styles.playButton}
         />
@@ -28,37 +30,27 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     flex: 1,
-    backgroundColor: "#8ceb07",
-  },
-  button: {
-    backgroundColor: "#FFF",
-    borderRadius: 50,
-    width: 200,
-    opacity: 0.8,
-    margin: 2,
+    backgroundColor: "black",
   },
   playButton: {
-    backgroundColor: "#FFF",
+    backgroundColor: "red",
     borderRadius: 50,
     width: 200,
     opacity: 0.8,
     margin: 2,
   },
   buttonTitle: {
-    color: "#BB1F13",
+    color: "white",
     fontSize: 25,
   },
   title: {
-    color: "#FFF",
+    color: "white",
     marginVertical: 20,
+    fontSize: 25,
   },
   titleContainer: {
     justifyContent: "space-around",
     alignItems: "center",
-  },
-  highScore: {
-    color: "red",
-    fontSize: 18,
   },
 });
 

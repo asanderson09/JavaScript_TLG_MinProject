@@ -17,7 +17,7 @@ import Mole from "./Mole";
 import Pause from "./Pause";
 import { StatusBar } from "expo-status-bar";
 
-const DEFAULT_TIME = 5;
+const DEFAULT_TIME = 15;
 const DEFAULT_STATE = {
   level: 1,
   score: 0,
