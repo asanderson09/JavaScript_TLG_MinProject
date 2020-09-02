@@ -8,7 +8,7 @@ jspm_packages/
 .eslintcache
 .web-build/
 
-.expo/
+*.expo/
 assets/.DS_Store
 .expo/settings.json
 *.json
