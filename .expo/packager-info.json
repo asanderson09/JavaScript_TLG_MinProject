@@ -3,8 +3,8 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerNgrokUrl": "https://cm-wca.anonymous.gamesample.exp.direct",
+  "packagerNgrokUrl": "https://packager.cm-wca.anonymous.gamesample.exp.direct",
+  "ngrokPid": 13195,
   "webpackServerPort": null
 }

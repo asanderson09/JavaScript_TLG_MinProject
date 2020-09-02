@@ -10,15 +10,21 @@ import {
 import React, { Component } from "react";
 
 import firebase from "./database/firebase";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default class Login extends Component {
   constructor() {
     super();
-    this.state = {
+    (this.state = {
       email: "",
       password: "",
       isLoading: false,
-    };
+    }),
+      (this.userData = {
+        id: "",
+        name: "",
+        accesToken: "",
+      });
   }
 
   updateInputVal = (val, prop) => {
@@ -38,14 +44,19 @@ export default class Login extends Component {
         .auth()
         .signInWithEmailAndPassword(this.state.email, this.state.password)
         .then((res) => {
-          console.log(res);
-          console.log(res.user.displayName);
+          // console.log(res);
+          // console.log(res.user.displayName);
           console.log("User logged-in successfully!");
-          this.setState({
-            isLoading: false,
-            email: "",
-            password: "",
-          });
+          // AsyncStorage.setItem("userName", res.user.displayName);
+          // AsyncStorage.setItem(
+          //   "userToken",
+          //   res.user.stsTokenManager.accessToken
+          // );
+          console.log(res.user.displayName);
+          console.log(res.user.uid);
+          console.log(res.user.getIdToken);
+          console.log(res.user.apiKey);
+          console.log(res.user.stsTokenManager.accessToken);
           this.props.navigation.navigate("Dashboard");
         })
         .catch((error) => this.setState({ errorMessage: error.message }));
