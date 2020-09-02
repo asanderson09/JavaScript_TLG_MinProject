@@ -1,6 +1,5 @@
 import Dashboard from "./Dashboard";
 import Game from "./Game";
-import GameOver from "./GameOver";
 import Login from "./Login";
 import Register from "./Register";
 import { createAppContainer } from "react-navigation";
