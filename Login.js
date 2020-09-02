@@ -21,8 +21,8 @@ const Login = ({ navigation }) => {
       </View>
 
       <View style={styles.container}>
-        <TextInput placeholder="username" style={styles.input} />
-        <TextInput placeholder="password" style={styles.input} />
+        <TextInput placeholder="Username" style={styles.input} />
+        <TextInput placeholder="Password" style={styles.input} />
       </View>
     </View>
   );
