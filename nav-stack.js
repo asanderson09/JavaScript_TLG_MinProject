@@ -1,14 +1,15 @@
+import Chat from "./components/Chat";
+import ChatScreen from "./screens/ChatScreen";
 import Dashboard from "./Dashboard";
 import Game from "./Game";
 import Login from "./Login";
+import LoginScreen from "./screens/LoginScreen";
+import Main from "./components/Main";
 import Register from "./Register";
-//import Chat from "./Chat";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import Main from "./components/Main";
-import Chat from "./components/Chat";
-import LoginScreen from "./screens/LoginScreen";
-import ChatScreen from "./screens/ChatScreen";
+
+//import Chat from "./Chat";
 
 const Navigator = createStackNavigator({
   Register: {
