@@ -88,6 +88,7 @@
 // export default Fire;
 
 import firebase from "firebase";
+
 // import "firebase/firestore";
 // import "firebase/auth";
 // import "firebase/functions";
@@ -95,7 +96,7 @@ import firebase from "firebase";
 
 class Fire {
   constructor() {
-    // this.init();
+    this.init();
     this.checkAuth();
   }
 
