@@ -2,15 +2,14 @@ import {
   ActivityIndicator,
   Alert,
   Button,
+  Keyboard,
   StyleSheet,
   Text,
   TextInput,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
-import AsyncStorage, {
-  useAsyncStorage,
-} from "@react-native-community/async-storage";
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 import firebase from "./database/firebase";
 
@@ -19,9 +18,12 @@ export default class Register extends Component {
     super();
     this.state = {
       displayName: "",
+      emailError: "",
       email: "",
+      passwordError: "",
       password: "",
       isLoading: false,
+      errorMessage: "",
     };
   }
 
@@ -44,12 +46,41 @@ export default class Register extends Component {
             displayName: this.state.displayName,
           });
           console.log("User registered successfully!");
-          console.log(res);
-          // AsyncStorage.setItem("userName", res.user.displayName);
-          // AsyncStorage.setItem("userToken", res.stsTokenManager.accessToken);
           this.props.navigation.navigate("Dashboard");
         })
         .catch((error) => this.setState({ errorMessage: error.message }));
+    }
+  };
+
+  emailValidator = () => {
+    if (this.state.email === "") {
+      this.setState({ emailError: "can not be empty" });
+    } else {
+      this.setState({ emailError: "" });
+    }
+  };
+
+  passwordValidator = () => {
+    if (this.state.password === "") {
+      this.setState({ passwordError: "can not be empty" });
+    } else if (this.state.password.length < 8) {
+      this.setState({
+        passwordError: "must be more than 8 characters",
+      });
+      // check if password is alphanumeric
+    } else if (this.state.password.valueOf().match(/^[0-9a-zA-Z]+$/)) {
+      this.setState({ passwordError: "must be alphanumeric" });
+    } else if (
+      this.state.password === this.state.password.toLowerCase() ||
+      this.state.password === this.state.password.toUpperCase()
+    ) {
+      this.setState({
+        passwordError: "must contain at least 1 uppercase and lowercase letter",
+      });
+    } else {
+      this.setState({
+        passwordError: "",
+      });
     }
   };
 
@@ -63,40 +94,53 @@ export default class Register extends Component {
     }
 
     return (
-      <View style={styles.container}>
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Name"
-          value={this.state.displayName}
-          onChangeText={(val) => this.updateInputVal(val, "displayName")}
-        />
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Email"
-          value={this.state.email}
-          onChangeText={(val) => this.updateInputVal(val, "email")}
-        />
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Password"
-          value={this.state.password}
-          onChangeText={(val) => this.updateInputVal(val, "password")}
-          maxLength={15}
-          secureTextEntry={true}
-        />
-        <Button
-          color="#3740FE"
-          title="Signup"
-          onPress={() => this.registerUser()}
-        />
-
-        <Text
-          style={styles.loginText}
-          onPress={() => this.props.navigation.navigate("Login")}
-        >
-          Already Registered? Click here to login
-        </Text>
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={{ color: "red", marginLeft: 20 }}>
+            {this.state.errorMessage}
+          </Text>
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Name"
+            value={this.state.displayName}
+            onChangeText={(val) => this.updateInputVal(val, "displayName")}
+          />
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Email"
+            value={this.state.email}
+            onBlur={() => this.emailValidator()}
+            onChangeText={(val) => this.updateInputVal(val, "email")}
+            keyboardType="email-address"
+          />
+          <Text style={{ color: "red", marginLeft: 20 }}>
+            {this.state.emailError}
+          </Text>
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Password"
+            value={this.state.password}
+            onChangeText={(val) => this.updateInputVal(val, "password")}
+            maxLength={15}
+            onBlur={() => this.passwordValidator()}
+            secureTextEntry={true}
+          />
+          <Text style={{ color: "red", marginLeft: 20 }}>
+            {this.state.passwordError}
+          </Text>
+          <Button
+            color="#3740FE"
+            title="Signup"
+            onPress={() => this.registerUser()}
+          />
+          <Text
+            style={styles.loginText}
+            onPress={() => this.props.navigation.navigate("Login")}
+          >
+            Already Registered? Click here to login
+          </Text>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

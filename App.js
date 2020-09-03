@@ -21,6 +21,7 @@ export default class App extends PureComponent {
         require("./assets/img/icon_pause.png"),
         require("./assets/img/icon_play.png"),
         require("./assets/img/icon_restart.png"),
+        require("./assets/img/icon_home.png"),
       ]),
       Font.loadAsync({
         lilitaOne: require("./assets/fonts/LilitaOne-Regular.ttf"),

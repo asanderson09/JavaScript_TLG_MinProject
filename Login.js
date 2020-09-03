@@ -2,9 +2,11 @@ import {
   ActivityIndicator,
   Alert,
   Button,
+  Keyboard,
   StyleSheet,
   Text,
   TextInput,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import React, { Component } from "react";
@@ -39,8 +41,6 @@ export default class Login extends Component {
         .auth()
         .signInWithEmailAndPassword(this.state.email, this.state.password)
         .then((res) => {
-          // console.log(res);
-          // console.log(res.user.displayName);
           console.log("User logged-in successfully!");
           console.log(res.user.displayName);
           this.props.navigation.navigate("Dashboard");
@@ -58,33 +58,37 @@ export default class Login extends Component {
       );
     }
     return (
-      <View style={styles.container}>
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Email"
-          value={this.state.email}
-          onChangeText={(val) => this.updateInputVal(val, "email")}
-        />
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Password"
-          value={this.state.password}
-          onChangeText={(val) => this.updateInputVal(val, "password")}
-          maxLength={15}
-          secureTextEntry={true}
-        />
-        <Button
-          color="#3740FE"
-          title="Signin"
-          onPress={() => this.userLogin()}
-        />
-        <Text
-          style={styles.loginText}
-          onPress={() => this.props.navigation.navigate("Register")}
-        >
-          Don't have account? Click here to signup
-        </Text>
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Email"
+            value={this.state.email}
+            onChangeText={(val) => this.updateInputVal(val, "email")}
+          />
+
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Password"
+            value={this.state.password}
+            onChangeText={(val) => this.updateInputVal(val, "password")}
+            maxLength={15}
+            secureTextEntry={true}
+          />
+
+          <Button
+            color="#3740FE"
+            title="Signin"
+            onPress={() => this.userLogin()}
+          />
+          <Text
+            style={styles.loginText}
+            onPress={() => this.props.navigation.navigate("Register")}
+          >
+            Don't have account? Click here to signup
+          </Text>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

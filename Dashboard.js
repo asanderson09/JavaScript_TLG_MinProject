@@ -1,14 +1,23 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 
 import React from "react";
+import firebase from "./database/firebase";
 
 const Dashboard = ({ navigation }) => {
   const gameHandler = () => {
-    console.log(this.props.email);
     navigation.navigate("Game");
   };
   const chatHandler = () => {
     navigation.navigate("LoginScreen");
+  };
+
+  const signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        navigation.push("Login");
+      });
   };
 
   return (
@@ -17,7 +26,6 @@ const Dashboard = ({ navigation }) => {
         <Text h1 h1Style={styles.title}>
           Whack-A-Mole
         </Text>
-        <Text> </Text>
         <Button
           title="Play game"
           titleStyle={styles.buttonTitle}
@@ -28,6 +36,12 @@ const Dashboard = ({ navigation }) => {
           title="Chat-It-Up"
           titleStyle={styles.buttonTitle}
           onPress={chatHandler}
+          buttonStyle={styles.chatButton}
+        />
+        <Button
+          title="Sign out"
+          titleStyle={styles.buttonTitle}
+          onPress={signOut}
           buttonStyle={styles.chatButton}
         />
       </View>
