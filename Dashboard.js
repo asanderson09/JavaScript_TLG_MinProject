@@ -4,6 +4,7 @@ import React from "react";
 
 const Dashboard = ({ navigation }) => {
   const gameHandler = () => {
+    console.log(this.props.email);
     navigation.navigate("Game");
   };
 

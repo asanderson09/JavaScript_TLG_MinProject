@@ -7,6 +7,9 @@ import {
   TextInput,
   View,
 } from "react-native";
+import AsyncStorage, {
+  useAsyncStorage,
+} from "@react-native-community/async-storage";
 import React, { Component, useState } from "react";
 
 import firebase from "./database/firebase";
@@ -41,13 +44,10 @@ export default class Register extends Component {
             displayName: this.state.displayName,
           });
           console.log("User registered successfully!");
-          this.setState({
-            isLoading: false,
-            displayName: "",
-            email: "",
-            password: "",
-          });
-          this.props.navigation.navigate("Login");
+          console.log(res);
+          // AsyncStorage.setItem("userName", res.user.displayName);
+          // AsyncStorage.setItem("userToken", res.stsTokenManager.accessToken);
+          this.props.navigation.navigate("Dashboard");
         })
         .catch((error) => this.setState({ errorMessage: error.message }));
     }

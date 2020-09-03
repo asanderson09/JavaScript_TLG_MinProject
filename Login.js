@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import React, { Component } from "react";
 
+import AsyncStorage from "@react-native-community/async-storage";
 import firebase from "./database/firebase";
 
 export default class Login extends Component {
@@ -43,8 +44,8 @@ export default class Login extends Component {
           console.log("User logged-in successfully!");
           this.setState({
             isLoading: false,
-            email: "",
-            password: "",
+            // email: "",
+            // password: "",
           });
           this.props.navigation.navigate("Dashboard");
         })
