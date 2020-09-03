@@ -9,6 +9,9 @@ export default class ChatScreen extends React.Component {
   };
 
   get user() {
+    console.log(Fire.uid);
+    console.log(Fire.db);
+
     return {
       _id: Fire.uid,
       name: this.props.navigation.state.params.name,
