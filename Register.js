@@ -61,6 +61,7 @@ export default class Register extends Component {
   };
 
   passwordValidator = () => {
+    // let alphNum = /^[0-9a-zA-Z]+$/;
     if (this.state.password === "") {
       this.setState({ passwordError: "can not be empty" });
     } else if (this.state.password.length < 8) {
