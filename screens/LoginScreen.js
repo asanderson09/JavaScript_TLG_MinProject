@@ -33,7 +33,7 @@ export default class LoginScreen extends React.Component {
             />
           </View>
           <View style={{ marginHorizontal: 32 }}>
-            <Text style={styles.header}>Username</Text>
+            <Text style={styles.header}>Let's Chat</Text>
             <TextInput
               style={styles.input}
               placeholder="Enter your alias"
@@ -61,21 +61,21 @@ export default class LoginScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F4F5F7",
+    backgroundColor: "#146EB4",
   },
   circle: {
     width: 500,
     height: 500,
     borderRadius: 500 / 2,
-    backgroundColor: "#FFF",
+    backgroundColor: "#FF9900",
     position: "absolute",
     left: -120,
     top: -20,
   },
   header: {
     fontWeight: "800",
-    fontSize: 30,
-    color: "#514E5A",
+    fontSize: 40,
+    color: "black",
     marginTop: 32,
   },
   input: {
@@ -85,14 +85,15 @@ const styles = StyleSheet.create({
     borderColor: "#BAB7C3",
     borderRadius: 30,
     paddingHorizontal: 16,
-    color: "#514E5A",
+    color: "red",
     fontWeight: "600",
   },
   continue: {
-    width: 70,
-    height: 70,
-    borderRadius: 70 / 2,
-    backgroundColor: "#9075E3",
+    marginTop: 20,
+    width: 80,
+    height: 80,
+    borderRadius: 80 / 2,
+    backgroundColor: "black",
     alignItems: "center",
     justifyContent: "center",
   },
