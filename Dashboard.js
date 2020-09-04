@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import React from "react";
 import firebase from "./database/firebase";
@@ -23,27 +23,33 @@ const Dashboard = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text h1 h1Style={styles.title}>
-          Whack-A-Mole
+        <Text h1 style={styles.title}>
+          Chat-A-Mole
         </Text>
-        <Button
-          title="Play game"
+      </View>
+      <View>
+        <TouchableOpacity
+          style={styles.playButton}
           titleStyle={styles.buttonTitle}
           onPress={gameHandler}
-          buttonStyle={styles.playButton}
-        />
-        <Button
-          title="Chat-It-Up"
+          //buttonStyle={styles.playButton}
+        >
+          <Text style={styles.text}>Play Game</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           titleStyle={styles.buttonTitle}
           onPress={chatHandler}
-          buttonStyle={styles.chatButton}
-        />
-        <Button
-          title="Sign out"
+          style={styles.chatButton}
+        >
+          <Text style={styles.text}>Chat-It-Up</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           titleStyle={styles.buttonTitle}
           onPress={signOut}
-          buttonStyle={styles.chatButton}
-        />
+          style={styles.signOutButton}
+        >
+          <Text style={styles.text}>Sign Out</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -51,37 +57,57 @@ const Dashboard = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "center",
     flex: 1,
     backgroundColor: "black",
   },
   playButton: {
-    backgroundColor: "red",
+    marginRight: 200,
+    backgroundColor: "lime",
     borderRadius: 50,
-    width: 200,
+    width: 150,
+    height: 50,
     opacity: 0.8,
     margin: 2,
-  },
-  buttonTitle: {
-    color: "white",
-    fontSize: 25,
+    alignItems: "center",
+    justifyContent: "center",
   },
   chatButton: {
-    backgroundColor: "blue",
-    borderRadius: 40,
-    width: 200,
+    marginLeft: 100,
+    backgroundColor: "teal",
+    borderRadius: 50,
+    width: 150,
+    height: 50,
     opacity: 0.8,
     margin: 2,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  signOutButton: {
+    marginLeft: 200,
+    backgroundColor: "red",
+    borderRadius: 50,
+    width: 150,
+    height: 50,
+    opacity: 0.8,
+    margin: 2,
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     color: "white",
-    marginVertical: 20,
-    fontSize: 25,
+    marginVertical: 100,
+    fontSize: 50,
   },
   titleContainer: {
     justifyContent: "space-around",
     alignItems: "center",
+  },
+  text: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
 
