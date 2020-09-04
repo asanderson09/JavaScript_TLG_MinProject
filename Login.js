@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import React, { Component } from "react";
 
-import AsyncStorage from "@react-native-community/async-storage";
 import firebase from "./database/firebase";
 
 export default class Login extends Component {
@@ -21,6 +20,7 @@ export default class Login extends Component {
       email: "",
       password: "",
       isLoading: false,
+      errorMessage: "",
     };
   }
 
@@ -60,6 +60,7 @@ export default class Login extends Component {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
+          <Text style={styles.header}>Login</Text>
           <TextInput
             style={styles.inputStyle}
             placeholder="Email"
@@ -85,7 +86,7 @@ export default class Login extends Component {
             style={styles.loginText}
             onPress={() => this.props.navigation.navigate("Register")}
           >
-            Don't have account? Click here to signup
+            Don't have an account? Click here to signup
           </Text>
         </View>
       </TouchableWithoutFeedback>
@@ -101,6 +102,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 35,
     backgroundColor: "#fff",
+  },
+  header: {
+    fontWeight: "800",
+    fontSize: 30,
+    color: "#514E5A",
+    marginTop: 2,
+    marginBottom: 150,
+    marginLeft: 60,
   },
   inputStyle: {
     width: "100%",
