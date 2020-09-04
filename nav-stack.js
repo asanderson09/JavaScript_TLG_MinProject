@@ -16,7 +16,7 @@ const Navigator = createStackNavigator({
     screen: Login,
     navigationOptions: {
       headerShown: false,
-      gesturesEnabled: false,
+      gestureEnabled: false,
     },
   },
   Dashboard: {
